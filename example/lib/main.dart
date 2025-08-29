@@ -62,7 +62,7 @@ class _AnimatedBottomSheetScreenState extends State<AnimatedBottomSheetScreen> {
         title: Text('Animated Bottom Sheet'),
       ),
       body: Center(
-        child: TextButton(onPressed: _openBottomSheet, child: Text('open bottom sheet')),
+        child: TextButton(onPressed: _openBottomSheet, child: Text('open bottom sheet'),clipBehavior: Clip.antiAlias,),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
