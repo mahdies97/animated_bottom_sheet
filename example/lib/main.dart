@@ -30,6 +30,8 @@ class AnimatedBottomSheetScreen extends StatefulWidget {
 }
 
 class _AnimatedBottomSheetScreenState extends State<AnimatedBottomSheetScreen> {
+ final List _items = ['test item'];
+
   void _openBottomSheet() {
     CustomBottomSheet.open(
       context: context,
@@ -38,14 +40,47 @@ class _AnimatedBottomSheetScreenState extends State<AnimatedBottomSheetScreen> {
 
       bottomSheetContentBuilder: (StateSetter setModalState) {
         return Container(
-          height: 300,
-          color: Colors.teal,
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                setModalState(() {});
-              },
-              child: Text("test"),
+          color: Colors.white,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    _items.add('new test item');
+                    setModalState(() {});
+                  },
+                  child: Text("add item"),
+                ),
+                TextButton(
+                  onPressed: () {
+                    _items.removeLast();
+                    setModalState(() {});
+                  },
+                  child: Text("remove item"),
+                ),
+                Column(
+                  children: List.generate(_items.length, (index) {
+                    return Container(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.indigo,
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                      margin: EdgeInsets.symmetric(vertical: 20),
+                      child: Text(
+                        _items[index],
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ],
             ),
           ),
         );
@@ -62,7 +97,11 @@ class _AnimatedBottomSheetScreenState extends State<AnimatedBottomSheetScreen> {
         title: Text('Animated Bottom Sheet'),
       ),
       body: Center(
-        child: TextButton(onPressed: _openBottomSheet, child: Text('open bottom sheet'),clipBehavior: Clip.antiAlias,),
+        child: TextButton(
+          onPressed: _openBottomSheet,
+          clipBehavior: Clip.antiAlias,
+          child: const Text('open bottom sheet'),
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
