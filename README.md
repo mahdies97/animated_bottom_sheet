@@ -20,7 +20,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_bottom_sheet: ^0.0.1
+  animated_bottom_sheet: ^1.0.0
 ```
 
 then 
