@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomBottomSheet {
+class AnimatedBottomSheet {
   static open({
     required BuildContext context,
     required Widget Function(StateSetter) bottomSheetContentBuilder,

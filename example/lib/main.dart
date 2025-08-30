@@ -33,7 +33,7 @@ class _AnimatedBottomSheetScreenState extends State<AnimatedBottomSheetScreen> {
  final List _items = ['test item'];
 
   void _openBottomSheet() {
-    CustomBottomSheet.open(
+    AnimatedBottomSheet.open(
       context: context,
       showDragHandle: true,
       useRootNavigator: true,
