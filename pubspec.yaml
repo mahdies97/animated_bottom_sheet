@@ -1,7 +1,7 @@
 name: animated_bottom_sheet
 description: "A customizable and animated bottom sheet for Flutter with support for custom height, drag handle, safe area, and smooth animations."
 version: 1.0.0
-homepage:
+homepage: 'https://github.com/mahdies97/animated_bottom_sheet'
 
 environment:
   sdk: ^3.8.1
